@@ -198,7 +198,7 @@ export default function VirtualTryOn() {
                 <div className="pt-8 border-t border-white/10 space-y-4">
                   <h4 className="text-lg font-serif">Love this look?</h4>
                   <a 
-                    href={`https://wa.me/910000000000?text=Hi, I tried on the ${selectedItem?.name} in your Virtual Studio and I love the look!`}
+                    href={`https://wa.me/917699078709?text=Hi, I tried on the ${selectedItem?.name} in your Virtual Studio and I love the look!`}
                     className="btn-gold w-full flex gap-3 text-sm"
                   >
                     <MessageCircle size={18} />

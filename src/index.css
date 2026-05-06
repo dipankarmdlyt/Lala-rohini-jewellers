@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Outfit", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
 
   --color-brand-black: #0F0F0F;
   --color-brand-gold: #D4AF37;
@@ -13,20 +13,20 @@
 
 @layer base {
   body {
-    @apply bg-brand-ivory text-brand-black font-sans antialiased;
+    @apply bg-brand-ivory text-brand-black font-sans antialiased leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-bold tracking-tight;
+    @apply font-serif font-medium tracking-tight;
   }
 
   /* Specific theme typography */
   .heading-bold {
-    @apply font-serif leading-[0.9] tracking-tighter;
+    @apply font-serif leading-[0.85] tracking-tighter;
   }
 
   .accent-label {
-    @apply text-[10px] uppercase tracking-[0.4em] font-bold;
+    @apply text-[9px] uppercase tracking-[0.5em] font-semibold text-brand-gold;
   }
 }
 

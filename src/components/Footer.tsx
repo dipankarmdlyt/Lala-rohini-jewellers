@@ -1,7 +1,12 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, MessageSquare } from 'lucide-react';
 import { BRAND_NAME } from '../constants';
+import { LegalType } from './LegalModal';
 
-export default function Footer() {
+interface FooterProps {
+  onOpenLegal: (type: LegalType) => void;
+}
+
+export default function Footer({ onOpenLegal }: FooterProps) {
   return (
     <footer className="bg-brand-black text-white pt-20 pb-10 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
@@ -41,10 +46,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xs uppercase tracking-widest font-bold mb-8">Customer Care</h3>
             <ul className="space-y-4 text-brand-gray/60 text-sm">
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Gold Exchange Policy</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Diamond Certification</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Book an Appointment</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+              <li><button onClick={() => onOpenLegal('certifications')} className="hover:text-brand-gold transition-colors">Gold Exchange Policy</button></li>
+              <li><button onClick={() => onOpenLegal('certifications')} className="hover:text-brand-gold transition-colors">Diamond Certification</button></li>
+              <li><a href="#bridal" className="hover:text-brand-gold transition-colors">Book an Appointment</a></li>
+              <li><button onClick={() => onOpenLegal('privacy')} className="hover:text-brand-gold transition-colors">Privacy Policy</button></li>
             </ul>
           </div>
 
@@ -54,11 +59,11 @@ export default function Footer() {
             <div className="space-y-4 text-brand-gray/60 text-sm">
               <div className="flex gap-3">
                 <MapPin size={18} className="text-brand-gold shrink-0" />
-                <p>123, Main Market Tower, <br />Jewellery Lane, New Delhi - 110001</p>
+                <p>RW36+MV Farakka, <br />West Bengal, 742212</p>
               </div>
               <div className="flex gap-3">
                 <Phone size={18} className="text-brand-gold shrink-0" />
-                <a href="tel:+919123456789" className="hover:text-white transition-colors tracking-widest">+91 91234 56789</a>
+                <a href="tel:+917699078709" className="hover:text-white transition-colors tracking-widest">076990 78709</a>
               </div>
               <div className="flex gap-3">
                 <Mail size={18} className="text-brand-gold shrink-0" />
@@ -70,12 +75,12 @@ export default function Footer() {
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex space-x-8 text-[10px] uppercase tracking-[0.2em] text-white/50">
-            <span>Terms</span>
-            <span>Privacy</span>
-            <span>Certifications</span>
+            <button onClick={() => onOpenLegal('terms')} className="hover:text-brand-gold transition-colors">Terms</button>
+            <button onClick={() => onOpenLegal('privacy')} className="hover:text-brand-gold transition-colors">Privacy</button>
+            <button onClick={() => onOpenLegal('certifications')} className="hover:text-brand-gold transition-colors">Certifications</button>
           </div>
           <div className="flex space-x-4">
-            <a href="https://wa.me/910000000000" className="flex items-center space-x-2 bg-[#25D366] text-white px-6 py-2 rounded-full hover:scale-105 transition-transform">
+            <a href="https://wa.me/917699078709" className="flex items-center space-x-2 bg-[#25D366] text-white px-6 py-2 rounded-full hover:scale-105 transition-transform">
               <MessageSquare size={16} fill="white" />
               <span className="text-[11px] font-bold uppercase tracking-widest">WhatsApp Us</span>
             </a>

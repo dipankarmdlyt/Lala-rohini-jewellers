@@ -63,7 +63,7 @@ export default function TrendingNow() {
                       
                       <div className="absolute inset-0 bg-brand-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <a 
-                          href={`https://wa.me/910000000000?text=I'm interested in the trending ${product.name} piece.`}
+                          href={`https://wa.me/917699078709?text=I'm interested in the trending ${product.name} piece.`}
                           className="btn-gold !py-3 !px-6 transform translate-y-4 group-hover:translate-y-0 transition-transform"
                         >
                           Enquire Now

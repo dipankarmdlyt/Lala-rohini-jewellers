@@ -94,7 +94,7 @@ export default function WishlistDrawer({ isOpen, onClose }: WishlistDrawerProps)
                           </button>
                           <div className="w-px h-3 bg-brand-black/10 self-center" />
                           <a 
-                            href={`https://wa.me/910000000000?text=Hi, I have the ${item.name} in my wishlist and would like to enquire about its price and availability.`}
+                            href={`https://wa.me/917699078709?text=Hi, I have the ${item.name} in my wishlist and would like to enquire about its price and availability.`}
                             className="text-[10px] uppercase font-bold tracking-widest text-brand-gold hover:underline flex items-center gap-1"
                           >
                             <MessageCircle size={12} /> Enquire
@@ -110,7 +110,7 @@ export default function WishlistDrawer({ isOpen, onClose }: WishlistDrawerProps)
             {items.length > 0 && (
               <div className="p-8 border-t border-brand-black/10 bg-white">
                 <a 
-                  href={`https://wa.me/910000000000?text=Hi, I am interested in these items from my wishlist: ${items.map(i => i.name).join(', ')}`}
+                  href={`https://wa.me/917699078709?text=Hi, I am interested in these items from my wishlist: ${items.map(i => i.name).join(', ')}`}
                   className="btn-gold w-full flex items-center justify-center gap-3 py-4"
                 >
                   <MessageCircle size={20} />

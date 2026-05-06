@@ -182,7 +182,7 @@ export default function ProductCatalog() {
                         </button>
                         <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex flex-col gap-2 glass-dark m-4">
                           <a 
-                            href={`https://wa.me/910000000000?text=I am interested in the ${product.name} piece. Can you please share the current pricing and customisation options?`}
+                            href={`https://wa.me/917699078709?text=I am interested in the ${product.name} piece. Can you please share the current pricing and customisation options?`}
                             className="w-full btn-gold !py-2 text-[10px] flex items-center justify-center gap-2"
                           >
                             <MessageCircle size={14} /> Enquire Now

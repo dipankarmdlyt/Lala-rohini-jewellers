@@ -38,7 +38,7 @@ export default function BridalSection({ onOpenBooking }: BridalSectionProps) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <a href="https://wa.me/910000000000" className="btn-gold !px-12">
+              <a href="https://wa.me/917699078709" className="btn-gold !px-12">
                 WhatsApp Us
               </a>
               <button 

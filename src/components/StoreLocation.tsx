@@ -1,4 +1,4 @@
-import { Clock, MapPin, Navigation } from 'lucide-react';
+import { Clock, MapPin, Navigation, Phone } from 'lucide-react';
 
 export default function StoreLocation() {
   return (
@@ -20,7 +20,17 @@ export default function StoreLocation() {
                 </div>
                 <div>
                   <h4 className="font-bold text-sm uppercase tracking-widest mb-1">Our Flagship Store</h4>
-                  <p className="text-sm text-brand-black/60">123, Main Market Tower, Jewellery Lane, New Delhi - 110001</p>
+                  <p className="text-sm text-brand-black/60">RW36+MV Farakka, West Bengal, 742212</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold shrink-0">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-widest mb-1">Contact</h4>
+                  <a href="tel:+917699078709" className="text-sm text-brand-black/60 hover:text-brand-gold transition-colors">076990 78709</a>
                 </div>
               </div>
 
@@ -37,7 +47,9 @@ export default function StoreLocation() {
             </div>
 
             <a 
-              href="https://goo.gl/maps/placeholder" 
+              href="https://maps.app.goo.gl/vvzKbkuxLajZKQ7t6" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-outline w-full md:w-auto flex gap-3 text-xs uppercase tracking-widest font-bold"
             >
               <Navigation size={16} />

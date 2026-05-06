@@ -47,7 +47,7 @@ export default function MarketRates() {
               </div>
             ))}
             
-            <a href="https://wa.me/910000000000" className="mt-4 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] font-bold text-center py-4 border border-dashed border-brand-gold/30 text-brand-gold hover:bg-brand-gold/5 transition-all">
+            <a href="https://wa.me/917699078709" className="mt-4 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] font-bold text-center py-4 border border-dashed border-brand-gold/30 text-brand-gold hover:bg-brand-gold/5 transition-all">
               Request Custom Quote <ExternalLink size={14} />
             </a>
           </div>

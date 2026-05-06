@@ -129,10 +129,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               <Heart size={14} fill={wishlist.length > 0 ? "currentColor" : "none"} /> 
               Wishlist ({wishlist.length})
             </button>
-            <a href="tel:+910000000000" className="btn-outline px-4 py-3 text-[10px] flex items-center justify-center gap-2">
+            <a href="tel:+917699078709" className="btn-outline px-4 py-3 text-[10px] flex items-center justify-center gap-2">
               <Phone size={14} /> Call Now
             </a>
-            <a href="https://wa.me/910000000000" className="col-span-2 btn-gold px-4 py-3 text-[10px] flex items-center justify-center gap-2">
+            <a href="https://wa.me/917699078709" className="col-span-2 btn-gold px-4 py-3 text-[10px] flex items-center justify-center gap-2">
               <MessageSquare size={14} /> WhatsApp Us
             </a>
           </div>

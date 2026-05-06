@@ -196,7 +196,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       Back to Collections
                     </button>
                     <a 
-                      href={`https://wa.me/910000000000?text=I just booked a bridal consultation! My name is ${formData.name}.`}
+                      href={`https://wa.me/917699078709?text=I just booked a bridal consultation! My name is ${formData.name}.`}
                       className="text-xs uppercase tracking-widest font-bold text-brand-gold flex items-center justify-center gap-2 group"
                     >
                       <MessageCircle size={14} className="group-hover:scale-110 transition-transform" /> Chat with Consultant Now

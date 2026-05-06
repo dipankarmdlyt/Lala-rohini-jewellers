@@ -10,6 +10,7 @@ import ProductCatalog from './components/ProductCatalog';
 import MarketRates from './components/MarketRates';
 import Testimonials from './components/Testimonials';
 import FAQSection from './components/FAQSection';
+import LegalModal, { LegalType } from './components/LegalModal';
 import VirtualTryOn from './components/VirtualTryOn';
 import StoreLocation from './components/StoreLocation';
 import Footer from './components/Footer';
@@ -20,10 +21,23 @@ import { WishlistProvider } from './context/WishlistContext';
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: LegalType | null }>({
+    isOpen: false,
+    type: null
+  });
+
+  const openLegal = (type: LegalType) => {
+    setLegalModal({ isOpen: true, type });
+  };
 
   return (
     <WishlistProvider>
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+      <LegalModal 
+        isOpen={legalModal.isOpen} 
+        onClose={() => setLegalModal({ ...legalModal, isOpen: false })} 
+        type={legalModal.type}
+      />
       <div className="relative">
         <div className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300">
           <LiveRatesTicker />
@@ -70,7 +84,7 @@ export default function App() {
         <StoreLocation />
       </main>
 
-      <Footer />
+      <Footer onOpenLegal={openLegal} />
       <WhatsAppButton />
     </div>
     </WishlistProvider>
