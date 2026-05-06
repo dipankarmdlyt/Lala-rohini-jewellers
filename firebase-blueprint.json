@@ -1,0 +1,112 @@
+{
+  "entities": {
+    "Admin": {
+      "title": "Admin User",
+      "description": "User with administrative access to the platform",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["SUPER_ADMIN", "MANAGER", "EDITOR"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "A jewellery item in the catalog",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "collection": { "type": "string" },
+        "price": { "type": "number" },
+        "priceRange": { "type": "string" },
+        "metalType": { "type": "string" },
+        "purity": { "type": "string" },
+        "weight": { "type": "number" },
+        "gender": { "type": "string", "enum": ["Women", "Men", "Unisex"] },
+        "stockStatus": { "type": "string", "enum": ["In Stock", "Out of Stock", "Made to Order"] },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "isTrending": { "type": "boolean" },
+        "isFeatured": { "type": "boolean" },
+        "isBridal": { "type": "boolean" },
+        "bridalSegment": { "type": "string", "enum": ["Traditional", "Lightweight", "Premium", null] },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "category", "collection", "price"]
+    },
+    "Collection": {
+      "title": "Collection",
+      "description": "A grouped set of products",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "bannerImage": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "priority": { "type": "number" },
+        "slug": { "type": "string" }
+      },
+      "required": ["name", "slug"]
+    },
+    "Enquiry": {
+      "title": "Lead/Enquiry",
+      "description": "A customer enquiry generated via WhatsApp",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phone": { "type": "string" },
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["New", "Contacted", "Converted", "Closed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "phone", "status"]
+    },
+    "Banner": {
+      "title": "Banner",
+      "description": "Hero or promotional banner",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "image": { "type": "string" },
+        "link": { "type": "string" },
+        "type": { "type": "string", "enum": ["HERO", "PROMOTIONAL", "BRIDAL"] },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["title", "image", "type"]
+    }
+  },
+  "firestore": {
+    "admins": {
+      "schema": "Admin",
+      "description": "Collection of administrative users"
+    },
+    "products": {
+      "schema": "Product",
+      "description": "Master catalog of jewellery products"
+    },
+    "collections": {
+      "schema": "Collection",
+      "description": "Store collections (Bridal, Engagement, etc.)"
+    },
+    "enquiries": {
+      "schema": "Enquiry",
+      "description": "Customer leads and enquiries"
+    },
+    "banners": {
+      "schema": "Banner",
+      "description": "Content management for banners"
+    }
+  }
+}

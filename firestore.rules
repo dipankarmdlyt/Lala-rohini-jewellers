@@ -1,0 +1,81 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Phase 3: Primitive Definition
+    function isSignedIn() { return request.auth != null; }
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isVerified() { return request.auth.token.email_verified == true; }
+    
+    // Check for admin role in the 'admins' collection
+    function isAdmin() {
+      return isSignedIn() && isVerified() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+    
+    function hasRole(role) {
+      return isAdmin() && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == role;
+    }
+
+    // 1. Admins Collection
+    match /admins/{uid} {
+      allow read: if isSignedIn() && (request.auth.uid == uid || isAdmin());
+      allow write: if isSignedIn() && isVerified() && (
+        // Only SUPER_ADMIN can create/update admins
+        (exists(/databases/$(database)/documents/admins/$(request.auth.uid)) && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == "SUPER_ADMIN") ||
+        // Initial bootstrap: specific user email
+        (request.auth.token.email == "dipankarmdl443@gmail.com")
+      );
+    }
+
+    // 2. Products Collection
+    function isValidProduct(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() <= 200 &&
+             data.category is string &&
+             data.price is number && data.price >= 0 &&
+             (!('weight' in data) || (data.weight is number && data.weight >= 0)) &&
+             (!('isBridal' in data) || data.isBridal is bool);
+    }
+
+    match /products/{productId} {
+      allow read: if true; // Publicly viewable
+      allow create: if isAdmin() && isValidId(productId) && isValidProduct(incoming()) && 
+                    incoming().createdAt == request.time;
+      allow update: if isAdmin() && isValidProduct(incoming()) && 
+                    (!('updatedAt' in incoming()) || incoming().updatedAt == request.time) &&
+                    incoming().createdAt == existing().createdAt;
+      allow delete: if isAdmin();
+    }
+
+    // 3. Collections
+    match /collections/{collectionId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 4. Enquiries (Leads)
+    function isValidEnquiry(data) {
+      return data.customerName is string && data.customerName.size() <= 100 &&
+             data.phone is string && data.phone.size() >= 10 && data.phone.size() <= 20 &&
+             data.status in ["New", "Contacted", "Converted", "Closed"];
+    }
+
+    match /enquiries/{enquiryId} {
+      allow read: if isAdmin();
+      allow create: if isValidEnquiry(incoming()) && incoming().createdAt == request.time;
+      allow update: if isAdmin() && isValidEnquiry(incoming());
+      allow delete: if isAdmin() && hasRole("SUPER_ADMIN");
+    }
+
+    // 5. Banners
+    match /banners/{bannerId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
