@@ -186,13 +186,13 @@ export default function ProductManagement() {
           </thead>
           <tbody className="divide-y divide-brand-black/5">
             {loading ? (
-              [1, 2, 3].map(i => (
+              [1, 2, 3, 4, 5].map(i => (
                 <tr key={i} className="animate-pulse">
-                  <td className="px-6 py-8"><div className="h-10 bg-brand-black/5 rounded w-48"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-24"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-16"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-12"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-20"></div></td>
+                  <td className="px-6 py-8"><div className="h-10 bg-slate-200 rounded w-48"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-slate-200 rounded w-24"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-slate-200 rounded w-16"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-slate-200 rounded w-12"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-slate-200 rounded w-20"></div></td>
                   <td className="px-6 py-8"></td>
                 </tr>
               ))

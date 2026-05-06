@@ -13,7 +13,8 @@ import {
   ChevronRight,
   Menu,
   X,
-  Sparkles
+  Sparkles,
+  AlertTriangle
 } from 'lucide-react';
 import { auth, db } from '../lib/firebase';
 import { onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -25,45 +26,84 @@ import EnquiryManagement from './EnquiryManagement';
 import ContentManagement from './ContentManagement';
 import BridalControlCenter from './BridalControlCenter';
 
+enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId?: string | null;
+    email?: string | null;
+    emailVerified?: boolean | null;
+  }
+}
+
+function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errInfo: FirestoreErrorInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    authInfo: {
+      userId: auth.currentUser?.uid,
+      email: auth.currentUser?.email,
+      emailVerified: auth.currentUser?.emailVerified,
+    },
+    operationType,
+    path
+  };
+  console.error('Firestore Error: ', JSON.stringify(errInfo));
+  throw new Error(JSON.stringify(errInfo));
+}
+
 export default function AdminLayout() {
   const [user, setUser] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [errorStatus, setErrorStatus] = useState<string | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setLoading(true);
+      setErrorStatus(null);
+      
       if (user) {
         const adminRef = doc(db, 'admins', user.uid);
-        const adminDoc = await getDoc(adminRef);
-        
-        if (adminDoc.exists()) {
-          setUser(user);
-          setIsAdmin(true);
-        } else {
-          // Check if this is the bootstrap email
-          if (user.email === 'dipankarmdl443@gmail.com') {
-             // Auto-create bootstrap admin
-             try {
-               await setDoc(adminRef, {
-                 uid: user.uid,
-                 email: user.email,
-                 role: 'SUPER_ADMIN',
-                 createdAt: serverTimestamp()
-               });
-               setUser(user);
-               setIsAdmin(true);
-             } catch (err) {
-               console.error("Failed to create bootstrap admin:", err);
-               signOut(auth);
-               setIsAdmin(false);
-             }
+        try {
+          const adminDoc = await getDoc(adminRef);
+          
+          if (adminDoc.exists()) {
+            setUser(user);
+            setIsAdmin(true);
+          } else if (user.email === 'dipankarmdl443@gmail.com') {
+            // Bootstrap sequence for developer email
+            console.log("Bootstrap admin detected. Attempting record creation...");
+            await setDoc(adminRef, {
+              uid: user.uid,
+              email: user.email,
+              role: 'SUPER_ADMIN',
+              createdAt: serverTimestamp()
+            });
+            setUser(user);
+            setIsAdmin(true);
           } else {
+            console.warn("Unrecognized admin access attempt:", user.email);
+            setErrorStatus("Access Denied: You do not have administrator permissions.");
             signOut(auth);
             setIsAdmin(false);
           }
+        } catch (err) {
+          console.error("Auth sync error:", err);
+          setErrorStatus("Database sync failed. Please check permissions.");
+          setIsAdmin(false);
         }
       } else {
         setUser(null);
@@ -76,11 +116,13 @@ export default function AdminLayout() {
   }, []);
 
   const handleLogin = async () => {
+    setErrorStatus(null);
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Login failed:', error);
+      setErrorStatus(error.message || "Login failed. Please check your browser popup settings.");
     }
   };
 
@@ -91,8 +133,12 @@ export default function AdminLayout() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-ivory flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-gold"></div>
+      <div className="min-h-screen bg-brand-ivory flex flex-col items-center justify-center gap-6">
+        <div className="relative">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-brand-gold"></div>
+          <Gem className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-brand-gold/40" size={20} />
+        </div>
+        <p className="text-xs uppercase tracking-[0.3em] font-bold text-brand-black/40 animate-pulse">Authenticating...</p>
       </div>
     );
   }
@@ -106,9 +152,16 @@ export default function AdminLayout() {
               <Gem className="text-brand-gold" size={40} />
             </div>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-4">
             <h1 className="text-3xl font-serif text-brand-black">Admin Access</h1>
-            <p className="text-brand-black/60 font-light">Please sign in to manage Lala Rohini Jewellers.</p>
+            <p className="text-brand-black/60 font-light text-sm">Please sign in with your authorized Google account to manage the platform.</p>
+            
+            {errorStatus && (
+              <div className="bg-red-50 border border-red-100 p-4 rounded-xl flex items-center gap-3 text-red-600 text-xs text-left animate-in shake duration-300">
+                <AlertTriangle size={18} className="shrink-0" />
+                <p>{errorStatus}</p>
+              </div>
+            )}
           </div>
           <button 
             onClick={handleLogin}

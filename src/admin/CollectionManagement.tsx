@@ -36,9 +36,9 @@ export default function CollectionManagement() {
         {loading ? (
           [1, 2, 3].map(i => (
             <div key={i} className="glass animate-pulse flex flex-col p-6 space-y-4">
-              <div className="aspect-video bg-brand-black/5 rounded-xl w-full" />
-              <div className="h-4 bg-brand-black/5 w-1/2 rounded" />
-              <div className="h-4 bg-brand-black/5 w-full rounded" />
+              <div className="aspect-video bg-slate-200 rounded-xl w-full" />
+              <div className="h-4 bg-slate-200 w-1/2 rounded" />
+              <div className="h-4 bg-slate-200 w-full rounded" />
             </div>
           ))
         ) : collections.length > 0 ? collections.map((coll) => (
