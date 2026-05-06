@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Heart, MessageCircle, ShoppingBag } from 'lucide-react';
+import { X, Heart, MessageCircle, ShoppingBag, Share2, Copy, Check } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
 import { ALL_PRODUCTS } from '../constants';
 
@@ -11,7 +11,28 @@ interface WishlistDrawerProps {
 
 export default function WishlistDrawer({ isOpen, onClose }: WishlistDrawerProps) {
   const { wishlist, toggleWishlist } = useWishlist();
+  const [copied, setCopied] = React.useState(false);
   const items = ALL_PRODUCTS.filter(p => wishlist.includes(p.id));
+
+  const handleShare = async () => {
+    const baseUrl = window.location.origin + window.location.pathname;
+    const shareUrl = `${baseUrl}?wishlist=${wishlist.join(',')}`;
+    
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy wishlist link:', err);
+    }
+  };
+
+  const getWhatsAppShareUrl = () => {
+    const baseUrl = window.location.origin + window.location.pathname;
+    const shareUrl = `${baseUrl}?wishlist=${wishlist.join(',')}`;
+    const text = encodeURIComponent(`Check out my jewelry wishlist from Lala Rohini Jewellers: ${shareUrl}`);
+    return `https://wa.me/?text=${text}`;
+  };
 
   return (
     <AnimatePresence>
@@ -108,7 +129,25 @@ export default function WishlistDrawer({ isOpen, onClose }: WishlistDrawerProps)
             </div>
 
             {items.length > 0 && (
-              <div className="p-8 border-t border-brand-black/10 bg-white">
+              <div className="p-8 border-t border-brand-black/10 bg-white space-y-3">
+                <div className="flex gap-3">
+                  <button 
+                    onClick={handleShare}
+                    className="flex-1 btn-outline flex items-center justify-center gap-2 py-3 text-[10px] uppercase font-bold tracking-widest"
+                  >
+                    {copied ? <Check size={14} className="text-green-600" /> : <Copy size={14} />}
+                    {copied ? 'Link Copied' : 'Copy Link'}
+                  </button>
+                  <a 
+                    href={getWhatsAppShareUrl()}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 bg-[#25D366] text-white flex items-center justify-center gap-2 py-3 rounded-full text-[10px] uppercase font-bold tracking-widest hover:scale-[1.02] transition-transform"
+                  >
+                    <Share2 size={14} />
+                    WhatsApp
+                  </a>
+                </div>
                 <a 
                   href={`https://wa.me/917699078709?text=Hi, I am interested in these items from my wishlist: ${items.map(i => i.name).join(', ')}`}
                   className="btn-gold w-full flex items-center justify-center gap-3 py-4"

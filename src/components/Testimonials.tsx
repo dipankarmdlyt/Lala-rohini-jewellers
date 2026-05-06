@@ -52,13 +52,25 @@ export default function Testimonials() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <span className="accent-label text-brand-gold mb-4 block">Kind Words</span>
           <h2 className="text-4xl md:text-5xl heading-bold italic mb-6">Patron Memories</h2>
           <div className="w-24 h-px bg-brand-gold/30 mx-auto" />
-        </div>
+        </motion.div>
 
-        <div className="relative">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="relative"
+        >
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {TESTIMONIALS.map((testimonial) => (
@@ -107,7 +119,7 @@ export default function Testimonials() {
               <ChevronRight size={20} className="group-active:translate-x-1 transition-transform" />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

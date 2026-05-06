@@ -50,7 +50,7 @@ export default function TrendingNow() {
                   >
                     <div className="relative aspect-square bg-brand-ivory overflow-hidden mb-6 border-soft">
                       <img 
-                        src={product.image} 
+                        src={product.images?.[0] || product.image} 
                         alt={product.name}
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                         referrerPolicy="no-referrer"

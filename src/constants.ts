@@ -3,7 +3,7 @@ export const BRAND_TAGLINE = "Legacy of Elegance, Crafted for Generations";
 
 export const NAV_LINKS = [
   { name: "Home", href: "#home" },
-  { name: "Gallery", href: "#catalog" },
+  { name: "Catalog", href: "#catalog" },
   { name: "Bridal", href: "#bridal" },
   { name: "Try-On", href: "#try-on" },
   { name: "Store", href: "#contact" },
@@ -48,7 +48,12 @@ export const ALL_PRODUCTS = [
     occasion: "Wedding",
     priceRange: "Above 5L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1611085583191-a3b1a308c021?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1591115765373-520b7a21769b?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A royal masterpiece featuring uncut diamonds and Zambian emeralds, handcrafted for the traditional Indian bride.",
     tag: "Bridal Pick"
   },
@@ -62,7 +67,12 @@ export const ALL_PRODUCTS = [
     occasion: "Wedding",
     priceRange: "Above 8L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1591115765373-520b7a21769b?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Multi-layered long necklace featuring meticulous kundan work and hand-strung South Sea pearls.",
     tag: "Exquisite"
   },
@@ -76,9 +86,13 @@ export const ALL_PRODUCTS = [
     occasion: "Wedding",
     priceRange: "Above 3L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1573408302185-9127ff5f6070?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Traditional Vaddanam featuring intricate carvings of Goddess Lakshmi, symbolizing prosperity.",
-    tag: "Auspicious"
+    tag: "Trending"
   },
   {
     id: 4,
@@ -90,7 +104,11 @@ export const ALL_PRODUCTS = [
     occasion: "Daily Wear",
     priceRange: "1L - 2L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1588444839799-eb6bf27e346a?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1638309102462-fc8e121703e4?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1638309102462-fc8e121703e4?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1635445210344-9333918a032d?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A contemporary take on a sacred tradition, featuring VS-GH clarity diamonds in a sleek gold chain.",
     tag: "Best Seller"
   },
@@ -104,9 +122,13 @@ export const ALL_PRODUCTS = [
     occasion: "Wedding",
     priceRange: "2L - 4L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1602751584552-8ba7a8ad6531?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Heirloom-quality earrings with traditional bird motifs and dangling seed pearls.",
-    tag: "Heritage Art"
+    tag: "Trending"
   },
   {
     id: 6,
@@ -118,7 +140,11 @@ export const ALL_PRODUCTS = [
     occasion: "Wedding",
     priceRange: "Above 10L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A crown of light featuring pear and marquise cut diamonds for a princess-inspired look.",
     tag: "Limited Design"
   },
@@ -134,9 +160,13 @@ export const ALL_PRODUCTS = [
     occasion: "Festive",
     priceRange: "1L - 3L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1535633302704-b02f4faad7b1?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1542385151-50e567210e74?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1542385151-50e567210e74?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A timeless Lakshmi coin necklace with a contemporary matte finish for elegant festive styling.",
-    tag: "Traditional"
+    tag: "Trending"
   },
   {
     id: 8,
@@ -148,7 +178,11 @@ export const ALL_PRODUCTS = [
     occasion: "Party",
     priceRange: "3L - 5L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1611085583191-a3b1a308c021?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1611085583191-a3b1a308c021?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Sophisticated three-strand necklace with precision-cut beads that catch light at every angle.",
     tag: "Handcrafted"
   },
@@ -162,7 +196,11 @@ export const ALL_PRODUCTS = [
     occasion: "Daily Wear",
     priceRange: "50k - 1L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1573408302185-9127ff5f6070?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Ultra-modern bangles with laser-cut detailing for everyday luxury and durability.",
     tag: "Modernist"
   },
@@ -176,9 +214,13 @@ export const ALL_PRODUCTS = [
     occasion: "Social",
     priceRange: "1L - 2L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1602751584552-8ba7a8ad6531?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Vibrant enamel work from Bikaner met Heritage Gold, creating a splash of color and culture.",
-    tag: "Artisan Choice"
+    tag: "Trending"
   },
   {
     id: 11,
@@ -190,7 +232,11 @@ export const ALL_PRODUCTS = [
     occasion: "Daily Wear",
     priceRange: "2L - 4L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1611085583191-a3b1a308c021?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Solid 22K gold bracelets with a high-polish finish, perfect for layering or wearing solo.",
     tag: "Timeless"
   },
@@ -204,7 +250,11 @@ export const ALL_PRODUCTS = [
     occasion: "Gift",
     priceRange: "Under 50k",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1627252827522-13657aa4cabc?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1627252827522-13657aa4cabc?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1627252827522-13657aa4cabc?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A delicate symbol of eternal love, crafted in hallmarked yellow gold.",
     tag: "Perfect Gift"
   },
@@ -220,7 +270,11 @@ export const ALL_PRODUCTS = [
     occasion: "Engagement",
     priceRange: "Above 2L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A breathtaking 1.5ct IGI certified diamond set in a minimalist four-prong platinum band.",
     tag: "Enquiry High"
   },
@@ -234,7 +288,11 @@ export const ALL_PRODUCTS = [
     occasion: "Evening Wear",
     priceRange: "Above 5L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1598560912005-59a1cc557e2d?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A continuous circle of 5ct brilliant-cut diamonds, representing infinite elegance.",
     tag: "Luxury"
   },
@@ -248,7 +306,11 @@ export const ALL_PRODUCTS = [
     occasion: "Social",
     priceRange: "1L - 2L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1588444839799-eb6bf27e346a?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1588444839799-eb6bf27e346a?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1588444839799-eb6bf27e346a?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Classic round studs surrounded by a halo of micro-diamonds for maximum brilliance.",
     tag: "Crowd Favorite"
   },
@@ -262,7 +324,11 @@ export const ALL_PRODUCTS = [
     occasion: "Daily Wear",
     priceRange: "50k - 1L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1627252827522-13657aa4cabc?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Modern baguette diamonds in a sleek rose gold setting, designed for the contemporary woman.",
     tag: "Minimalist"
   },
@@ -276,7 +342,11 @@ export const ALL_PRODUCTS = [
     occasion: "Party",
     priceRange: "Above 3L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1598560912005-59a1cc557e2d?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1598560912005-59a1cc557e2d?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1598560912005-59a1cc557e2d?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A center cushion-cut yellow diamond paired with pavé white diamonds for a bold statement.",
     tag: "Unique"
   },
@@ -292,7 +362,11 @@ export const ALL_PRODUCTS = [
     occasion: "Wedding",
     priceRange: "Under 50k",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1635767798638-3e2827e84236?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1635767798638-3e2827e84236?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1635767798638-3e2827e84236?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Heavily oxidized sterling silver anklets with traditional Rajasthani filigree work.",
     tag: "Artisanal"
   },
@@ -306,9 +380,13 @@ export const ALL_PRODUCTS = [
     occasion: "Daily Wear",
     priceRange: "Under 50k",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1544441892-719358797177?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1629227352021-c73ab78a1366?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1635767798638-3e2827e84236?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "High-brilliance moissanite stones set in hallmarked 92.5 sterling silver.",
-    tag: "Sparkle"
+    tag: "Trending"
   },
   {
     id: 20,
@@ -320,7 +398,11 @@ export const ALL_PRODUCTS = [
     occasion: "Social",
     priceRange: "Under 20k",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1635767798638-3e2827e84236?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A bold, minimalist neckpiece featuring hand-polished silver for a chic, industrial look.",
     tag: "Trendsetter"
   },
@@ -335,7 +417,11 @@ export const ALL_PRODUCTS = [
     occasion: "Festive",
     priceRange: "1L - 2L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1544441892-719358797177?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1535633302704-b02f4faad7b1?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1535633302704-b02f4faad7b1?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1611085583191-a3b1a308c021?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Opulent openable kada featuring fine wire-work patterns inspired by Mughal gardens.",
     tag: "Artisanal"
   },
@@ -349,7 +435,11 @@ export const ALL_PRODUCTS = [
     occasion: "Daily Wear",
     priceRange: "30k - 50k",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1630030538559-911246948cbe?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1602751584552-8ba7a8ad6531?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Contemporary lightweight drops designed for the modern workspace.",
     tag: "Trending"
   },
@@ -363,7 +453,11 @@ export const ALL_PRODUCTS = [
     occasion: "Wedding",
     priceRange: "Above 4L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Classic South Indian fringe necklace with bunches of small pearls and vibrant rubies.",
     tag: "Heritage Pick"
   },
@@ -378,7 +472,11 @@ export const ALL_PRODUCTS = [
     occasion: "Red Carpet",
     priceRange: "Above 8L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "Over 10 carats of high-clarity diamonds in a seamless white gold setting.",
     tag: "Limited Design"
   },
@@ -392,7 +490,11 @@ export const ALL_PRODUCTS = [
     occasion: "Engagement",
     priceRange: "1L - 3L",
     price: "Enquire for Price",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
+    images: [
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1598560912005-59a1cc557e2d?auto=format&fit=crop&q=80&w=800"
+    ],
     description: "A romantic pear-shaped center stone accented by a brilliant diamond halo.",
     tag: "Best Seller"
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import Accordion from './Accordion';
 import { ShieldCheck, RefreshCw, Truck, Award } from 'lucide-react';
 
@@ -47,7 +48,12 @@ export default function FAQSection() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Content side */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <span className="accent-label text-brand-gold mb-4 block">Assurance & Support</span>
             <h2 className="text-4xl md:text-5xl heading-bold italic mb-8">Patron Trust Charter</h2>
             <p className="text-brand-black/50 text-sm font-light mb-12 max-w-md">
@@ -55,41 +61,40 @@ export default function FAQSection() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div className="flex gap-4">
-                <ShieldCheck className="text-brand-gold shrink-0" size={24} />
-                <div>
-                  <h4 className="text-[10px] uppercase tracking-widest font-bold mb-1">100% Certified</h4>
-                  <p className="text-[10px] text-brand-black/40">GIA & IGI certifications</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <RefreshCw className="text-brand-gold shrink-0" size={24} />
-                <div>
-                  <h4 className="text-[10px] uppercase tracking-widest font-bold mb-1">Lifetime Buyback</h4>
-                  <p className="text-[10px] text-brand-black/40">Transparent valuations</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <Truck className="text-brand-gold shrink-0" size={24} />
-                <div>
-                  <h4 className="text-[10px] uppercase tracking-widest font-bold mb-1">Insured Shipping</h4>
-                  <p className="text-[10px] text-brand-black/40">Doorstep secure delivery</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <Award className="text-brand-gold shrink-0" size={24} />
-                <div>
-                  <h4 className="text-[10px] uppercase tracking-widest font-bold mb-1">Purity Assured</h4>
-                  <p className="text-[10px] text-brand-black/40">BIS Hallmarked 22K Gold</p>
-                </div>
-              </div>
+              {[
+                { icon: ShieldCheck, title: "100% Certified", desc: "GIA & IGI certifications" },
+                { icon: RefreshCw, title: "Lifetime Buyback", desc: "Transparent valuations" },
+                { icon: Truck, title: "Insured Shipping", desc: "Doorstep secure delivery" },
+                { icon: Award, title: "Purity Assured", desc: "BIS Hallmarked 22K Gold" }
+              ].map((item, idx) => (
+                <motion.div 
+                  key={item.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex gap-4"
+                >
+                  <item.icon className="text-brand-gold shrink-0" size={24} />
+                  <div>
+                    <h4 className="text-[10px] uppercase tracking-widest font-bold mb-1">{item.title}</h4>
+                    <p className="text-[10px] text-brand-black/40">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Accordion side */}
-          <div className="bg-white/50 backdrop-blur-sm p-8 md:p-12 border border-white rounded-2xl shadow-sm">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-white/50 backdrop-blur-sm p-8 md:p-12 border border-white rounded-2xl shadow-sm"
+          >
             <Accordion items={FAQ_ITEMS} />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

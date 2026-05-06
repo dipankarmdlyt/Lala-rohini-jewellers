@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Calendar, MapPin, Video, ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
 import React, { useState } from 'react';
+import { useSound } from '../context/SoundContext';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface BookingModalProps {
 }
 
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
+  const { playSound } = useSound();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     type: '',
@@ -20,16 +22,23 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const nextStep = () => setStep(s => s + 1);
-  const prevStep = () => setStep(s => s - 1);
+  const nextStep = () => {
+    playSound('click');
+    setStep(s => s + 1);
+  };
+  const prevStep = () => {
+    playSound('click');
+    setStep(s => s - 1);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
+    playSound('success');
     setIsSubmitting(false);
-    nextStep(); // Move to success step
+    setStep(4); // Move to success step
   };
 
   return (

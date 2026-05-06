@@ -13,7 +13,7 @@ export default function BridalSection({ onOpenBooking }: BridalSectionProps) {
       
       <div className="absolute right-0 top-0 w-1/2 h-full hidden lg:block">
         <img 
-          src="https://images.unsplash.com/photo-1601054704854-1a2e79dea4d3?auto=format&fit=crop&q=80&w=1200" 
+          src="https://images.unsplash.com/photo-1591115765373-520b7a21769b?auto=format&fit=crop&q=80&w=1200" 
           alt="Bridal Collection" 
           className="w-full h-full object-cover opacity-70"
           referrerPolicy="no-referrer"
@@ -38,15 +38,19 @@ export default function BridalSection({ onOpenBooking }: BridalSectionProps) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <a href="https://wa.me/917699078709" className="btn-gold !px-12">
-                WhatsApp Us
+              <a 
+                href="https://wa.me/917699078709" 
+                className="btn-gold !px-12 flex items-center justify-center gap-3 active:scale-[0.98] transition-transform"
+              >
+                <MessageCircle size={18} />
+                <span>WhatsApp Us</span>
               </a>
               <button 
                 onClick={onOpenBooking}
-                className="glass-dark hover:bg-white/20 text-white !border-white/20 !px-12 flex gap-3 py-4 text-[10px] uppercase font-bold tracking-widest transition-all"
+                className="glass-dark hover:bg-white/10 text-white border border-white/20 px-12 py-4 text-[12px] uppercase font-bold tracking-[0.2em] transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
               >
                 <Calendar size={18} />
-                Book Consultation
+                <span>Book Consultation</span>
               </button>
             </div>
 

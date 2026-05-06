@@ -1,11 +1,15 @@
 import { MessageSquare } from 'lucide-react';
+import { useSound } from '../context/SoundContext';
 
 export default function WhatsAppButton() {
+  const { playSound } = useSound();
+
   return (
     <a
       href="https://wa.me/917699078709?text=Greetings! I am visiting the Lala Rohini Jewellers website and would like to learn more about your heritage collections and current store offerings."
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => playSound('click')}
       className="fixed bottom-6 right-6 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group"
       aria-label="Contact on WhatsApp"
     >

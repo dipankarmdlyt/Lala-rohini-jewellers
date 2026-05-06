@@ -3,37 +3,46 @@ import { motion, AnimatePresence } from 'motion/react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useSound } from '../context/SoundContext';
 
-const SLIDES = [
-  {
-    image: "https://images.unsplash.com/photo-1573408302185-9127ff5f6070?auto=format&fit=crop&q=80&w=2000",
-    label: "Since 1985 — The Legacy of Gold",
-    title: "The Heart of Every Celebration",
-    cta: "Explore Collection",
-    link: "#catalog"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=2000",
-    label: "Diamond Excellence",
-    title: "Certified Brilliance and Clarity",
-    cta: "View Diamonds",
-    link: "#catalog"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1602143352538-3498877ca057?auto=format&fit=crop&q=80&w=2000",
-    label: "The Bridal Masterpiece",
-    title: "Timeless Jewels For Your Big Day",
-    cta: "Bridal Special",
-    link: "#bridal"
-  }
-];
+interface HeroProps {
+  onExplore?: () => void;
+}
 
-export default function Hero() {
+export default function Hero({ onExplore }: HeroProps) {
+  const { t } = useTranslation();
+  
+  const SLIDES = [
+    {
+      image: "https://images.unsplash.com/photo-1599643477193-a3a71059ef8d?auto=format&fit=crop&q=80&w=2000",
+      label: t('hero.label1'),
+      title: t('hero.title1'),
+      cta: t('hero.cta'),
+      link: "#catalog"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1611085583191-a3b1a308c021?auto=format&fit=crop&q=80&w=2000",
+      label: t('hero.label2'),
+      title: t('hero.title2'),
+      cta: t('hero.cta'),
+      link: "#catalog"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1591115765373-520b7a21769b?auto=format&fit=crop&q=80&w=2000",
+      label: t('hero.label3'),
+      title: t('hero.title3'),
+      cta: t('hero.cta'),
+      link: "#catalog"
+    }
+  ];
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, duration: 30 },
     [Autoplay({ delay: 6000, stopOnInteraction: false })]
   );
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const { playSound } = useSound();
 
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
@@ -46,23 +55,59 @@ export default function Hero() {
     emblaApi.on('select', onSelect);
   }, [emblaApi, onSelect]);
 
+  const handleExploreClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    playSound('click');
+    onExplore?.();
+  };
+
   return (
     <section id="home" className="relative h-screen overflow-hidden bg-brand-black">
       <div className="overflow-hidden h-full" ref={emblaRef}>
         <div className="flex h-full">
           {SLIDES.map((slide, index) => (
             <div key={index} className="flex-[0_0_100%] min-w-0 h-full relative">
-              {/* Background Image with Overlay */}
-              <div className="absolute inset-0 z-0">
-                <motion.img 
-                  animate={{ scale: index === selectedIndex ? 1.05 : 1 }}
-                  transition={{ duration: 6, ease: "linear" }}
-                  src={slide.image} 
-                  alt={slide.title} 
-                  className="w-full h-full object-cover opacity-60"
-                  referrerPolicy="no-referrer"
+              {/* Background Image with Cinematic Parallax & Animated Mesh */}
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <motion.div
+                  initial={false}
+                  animate={{ 
+                    scale: index === selectedIndex ? 1.1 : 1.2,
+                    x: index === selectedIndex ? "0%" : "2%",
+                  }}
+                  transition={{ 
+                    scale: { duration: 12, ease: "linear" },
+                    x: { duration: 1.5, ease: [0.33, 1, 0.68, 1] }
+                  }}
+                  className="absolute inset-0"
+                >
+                  <img 
+                    src={slide.image} 
+                    alt={slide.title} 
+                    className="w-full h-full object-cover opacity-60"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+
+                {/* Animated Gradient Mesh Overlay */}
+                <motion.div 
+                  animate={{ 
+                    background: [
+                      "radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%)",
+                      "radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.15) 0%, transparent 50%)",
+                      "radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%)"
+                    ]
+                  }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/40 to-transparent" />
+
+                {/* Global Scene Light */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_50%)]" />
+
+                {/* Enhanced Gradient Overlay for readability and luxury feel */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/30 to-transparent" />
               </div>
 
               <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center w-full">
@@ -77,26 +122,44 @@ export default function Hero() {
                       className="max-w-4xl text-white"
                     >
                       <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="accent-label text-brand-gold mb-6"
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                        className="accent-label text-brand-gold mb-6 text-shadow-sm"
                       >
                         {slide.label}
                       </motion.p>
                       
-                      <h1 className="text-6xl md:text-8xl lg:text-[110px] heading-bold italic text-white mb-10 leading-[0.9]">
+                      <motion.h1 
+                        initial={{ opacity: 0, filter: "blur(10px)", y: 40 }}
+                        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                        transition={{ delay: 0.6, duration: 1, ease: [0.33, 1, 0.68, 1] }}
+                        className="text-6xl md:text-8xl lg:text-[100px] heading-bold italic text-white mb-10 leading-[0.9] drop-shadow-2xl"
+                      >
                         {slide.title}
-                      </h1>
+                      </motion.h1>
                       
-                      <div className="flex flex-col sm:flex-row gap-6 mt-12">
-                        <a href={slide.link} className="btn-gold !px-12">
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1, duration: 0.8 }}
+                        className="flex flex-col sm:flex-row gap-6 mt-12"
+                      >
+                        <a 
+                          href={slide.link} 
+                          onClick={handleExploreClick}
+                          className="btn-gold !px-12 shadow-xl hover:scale-105 transition-transform"
+                        >
                           {slide.cta}
                         </a>
-                        <a href="#bridal" className="btn-outline !border-white/30 text-white hover:!bg-white/10 !px-12">
+                        <a 
+                          href="#bridal" 
+                          onClick={() => playSound('click')}
+                          className="btn-outline !border-white/30 text-white hover:!bg-white/10 !px-12 backdrop-blur-sm"
+                        >
                           Book Appointment
                         </a>
-                      </div>
+                      </motion.div>
                     </motion.div>
                   )}
                 </AnimatePresence>

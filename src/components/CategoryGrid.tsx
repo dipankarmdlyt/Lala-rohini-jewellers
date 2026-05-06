@@ -2,24 +2,34 @@ import { motion } from 'motion/react';
 import { CATEGORIES } from '../constants';
 import { ArrowUpRight } from 'lucide-react';
 
-export default function CategoryGrid() {
+export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: () => void }) {
   return (
     <section id="collections" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-20 text-center max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 text-center max-w-2xl mx-auto"
+        >
           <h2 className="text-5xl md:text-6xl heading-bold italic mb-8">Our Exquisite Collections</h2>
           <p className="accent-label text-brand-gold">
             Heritage craftsmanship meets modern excellence
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {CATEGORIES.map((category) => (
-            <motion.a
+          {CATEGORIES.map((category, idx) => (
+            <motion.div
               key={category.id}
-              href={`#${category.id}`}
+              onClick={() => onSelectCategory?.()}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: idx * 0.2 }}
               whileHover={{ scale: 0.985 }}
-              className="relative aspect-[16/10] group overflow-hidden bg-brand-black"
+              className="relative aspect-[16/10] group overflow-hidden bg-brand-black cursor-pointer"
             >
               <img 
                 src={category.image} 
@@ -41,7 +51,7 @@ export default function CategoryGrid() {
                   </div>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

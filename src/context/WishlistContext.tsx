@@ -11,7 +11,19 @@ const WishlistContext = createContext<WishlistContextType | undefined>(undefined
 export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [wishlist, setWishlist] = useState<number[]>(() => {
     const saved = localStorage.getItem('lrj_wishlist');
-    return saved ? JSON.parse(saved) : [];
+    const initialWishlist = saved ? JSON.parse(saved) : [];
+    
+    // Check for shared wishlist in URL
+    const params = new URLSearchParams(window.location.search);
+    const sharedIds = params.get('wishlist');
+    if (sharedIds) {
+      const ids = sharedIds.split(',').map(Number).filter(id => !isNaN(id));
+      // Merge with existing or just add unique ones
+      const uniqueIds = Array.from(new Set([...initialWishlist, ...ids]));
+      return uniqueIds;
+    }
+    
+    return initialWishlist;
   });
 
   useEffect(() => {

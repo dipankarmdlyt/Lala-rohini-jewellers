@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import { useSound } from '../context/SoundContext';
 
 interface AccordionItemProps {
   id: string;
@@ -62,8 +63,10 @@ interface AccordionProps {
 
 export default function Accordion({ items, allowMultiple = false }: AccordionProps) {
   const [openIds, setOpenIds] = useState<string[]>([]);
+  const { playSound } = useSound();
 
   const toggle = (id: string) => {
+    playSound('click');
     if (allowMultiple) {
       setOpenIds(prev => 
         prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]

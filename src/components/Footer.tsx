@@ -79,12 +79,15 @@ export default function Footer({ onOpenLegal }: FooterProps) {
             <button onClick={() => onOpenLegal('privacy')} className="hover:text-brand-gold transition-colors">Privacy</button>
             <button onClick={() => onOpenLegal('certifications')} className="hover:text-brand-gold transition-colors">Certifications</button>
           </div>
-          <div className="flex space-x-4">
-            <a href="https://wa.me/917699078709" className="flex items-center space-x-2 bg-[#25D366] text-white px-6 py-2 rounded-full hover:scale-105 transition-transform">
-              <MessageSquare size={16} fill="white" />
-              <span className="text-[11px] font-bold uppercase tracking-widest">WhatsApp Us</span>
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+            <a 
+              href="https://wa.me/917699078709" 
+              className="flex items-center justify-center space-x-3 bg-[#25D366] text-white px-8 py-4 sm:py-3 rounded-full hover:scale-105 transition-transform w-full sm:w-auto"
+            >
+              <MessageSquare size={18} fill="white" className="shrink-0" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">WhatsApp Us</span>
             </a>
-            <button className="bg-white text-brand-black px-8 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest hover:scale-105 transition-transform">
+            <button className="bg-white text-brand-black px-10 py-4 sm:py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] hover:scale-105 transition-transform w-full sm:w-auto flex items-center justify-center whitespace-nowrap">
               Visit Showroom
             </button>
           </div>

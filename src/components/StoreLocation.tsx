@@ -60,10 +60,11 @@ export default function StoreLocation() {
           {/* Map Preview (Simulated with Image) */}
           <div className="lg:w-1/2 w-full aspect-square md:aspect-video lg:aspect-square bg-brand-gray relative overflow-hidden group border border-brand-black/5 shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200" 
-              alt="Store Entrance" 
+              src="https://images.unsplash.com/photo-1615655404745-a10d242f1345?auto=format&fit=crop&q=80&w=1200" 
+              alt="Store Interior" 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
             {/* Map Overlay Badge */}
             <div className="absolute top-6 right-6 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-widest shadow-lg">
