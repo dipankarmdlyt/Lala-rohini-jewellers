@@ -34,7 +34,13 @@ export default function CollectionManagement() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading ? (
-          [1, 2, 3].map(i => <div key={i} className="h-48 glass animate-pulse"></div>)
+          [1, 2, 3].map(i => (
+            <div key={i} className="glass animate-pulse flex flex-col p-6 space-y-4">
+              <div className="aspect-video bg-brand-black/5 rounded-xl w-full" />
+              <div className="h-4 bg-brand-black/5 w-1/2 rounded" />
+              <div className="h-4 bg-brand-black/5 w-full rounded" />
+            </div>
+          ))
         ) : collections.length > 0 ? collections.map((coll) => (
           <div key={coll.id} className="glass group overflow-hidden hover:border-brand-gold/30 transition-all flex flex-col">
             <div className="aspect-video relative overflow-hidden">

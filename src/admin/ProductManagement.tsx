@@ -188,11 +188,11 @@ export default function ProductManagement() {
             {loading ? (
               [1, 2, 3].map(i => (
                 <tr key={i} className="animate-pulse">
-                  <td className="px-6 py-8"><div className="h-10 bg-slate-100 rounded w-48"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-slate-100 rounded w-24"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-slate-100 rounded w-16"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-slate-100 rounded w-12"></div></td>
-                  <td className="px-6 py-8"><div className="h-4 bg-slate-100 rounded w-20"></div></td>
+                  <td className="px-6 py-8"><div className="h-10 bg-brand-black/5 rounded w-48"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-24"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-16"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-12"></div></td>
+                  <td className="px-6 py-8"><div className="h-4 bg-brand-black/5 rounded w-20"></div></td>
                   <td className="px-6 py-8"></td>
                 </tr>
               ))

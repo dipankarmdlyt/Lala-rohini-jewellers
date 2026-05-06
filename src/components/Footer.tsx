@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Instagram, Facebook, MessageSquare } from 'lucide-react';
 import { BRAND_NAME } from '../constants';
 import { LegalType } from './LegalModal';
@@ -78,7 +79,7 @@ export default function Footer({ onOpenLegal }: FooterProps) {
             <button onClick={() => onOpenLegal('terms')} className="hover:text-brand-gold transition-colors">Terms</button>
             <button onClick={() => onOpenLegal('privacy')} className="hover:text-brand-gold transition-colors">Privacy</button>
             <button onClick={() => onOpenLegal('certifications')} className="hover:text-brand-gold transition-colors">Certifications</button>
-            <a href="/admin" className="hover:text-brand-gold transition-colors ml-4 text-[9px] opacity-30">Admin</a>
+            <Link to="/admin" className="hover:text-brand-gold transition-colors ml-4 text-[9px] opacity-30">Admin</Link>
           </div>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
             <a 

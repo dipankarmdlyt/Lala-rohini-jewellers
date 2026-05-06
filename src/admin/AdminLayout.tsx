@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { auth, db } from '../lib/firebase';
 import { onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import Dashboard from './Dashboard';
 import ProductManagement from './ProductManagement';
 import CollectionManagement from './CollectionManagement';
@@ -36,15 +36,30 @@ export default function AdminLayout() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const adminDoc = await getDoc(doc(db, 'admins', user.uid));
+        const adminRef = doc(db, 'admins', user.uid);
+        const adminDoc = await getDoc(adminRef);
+        
         if (adminDoc.exists()) {
           setUser(user);
           setIsAdmin(true);
         } else {
           // Check if this is the bootstrap email
           if (user.email === 'dipankarmdl443@gmail.com') {
-             setUser(user);
-             setIsAdmin(true);
+             // Auto-create bootstrap admin
+             try {
+               await setDoc(adminRef, {
+                 uid: user.uid,
+                 email: user.email,
+                 role: 'SUPER_ADMIN',
+                 createdAt: serverTimestamp()
+               });
+               setUser(user);
+               setIsAdmin(true);
+             } catch (err) {
+               console.error("Failed to create bootstrap admin:", err);
+               signOut(auth);
+               setIsAdmin(false);
+             }
           } else {
             signOut(auth);
             setIsAdmin(false);

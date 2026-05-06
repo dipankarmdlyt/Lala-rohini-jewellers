@@ -493,11 +493,11 @@ export default function ProductCatalog() {
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                 {[1, 2, 3, 4, 5, 6].map(i => (
                   <div key={i} className="animate-pulse space-y-6">
-                    <div className="aspect-[4/5] bg-brand-gray/30 rounded-2xl" />
+                    <div className="aspect-[4/5] bg-brand-black/5 rounded-2xl" />
                     <div className="space-y-3">
-                      <div className="h-4 bg-brand-gray/30 w-1/3 rounded" />
-                      <div className="h-6 bg-brand-gray/30 w-3/4 rounded" />
-                      <div className="h-4 bg-brand-gray/30 w-full rounded" />
+                      <div className="h-4 bg-brand-black/5 w-1/3 rounded" />
+                      <div className="h-6 bg-brand-black/10 w-3/4 rounded" />
+                      <div className="h-4 bg-brand-black/5 w-full rounded" />
                     </div>
                   </div>
                 ))}
