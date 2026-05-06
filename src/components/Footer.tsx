@@ -1,0 +1,90 @@
+import { MapPin, Phone, Mail, Instagram, Facebook, MessageSquare } from 'lucide-react';
+import { BRAND_NAME } from '../constants';
+
+export default function Footer() {
+  return (
+    <footer className="bg-brand-black text-white pt-20 pb-10 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Info */}
+          <div>
+            <h2 className="text-2xl font-serif tracking-widest uppercase mb-4 text-brand-gold">Lala Rohini <span className="text-white">Jewellers</span></h2>
+            <p className="text-brand-gray/60 text-sm font-light leading-relaxed mb-6">
+              A heritage brand specializing in hallmarked gold and certified diamonds since 1984. Crafting timeless beauty for generations.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
+                <Instagram size={18} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
+                <Facebook size={18} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
+                <MessageSquare size={18} />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xs uppercase tracking-widest font-bold mb-8">Navigation</h3>
+            <ul className="space-y-4 text-brand-gray/60 text-sm">
+              <li><a href="#home" className="hover:text-brand-gold transition-colors">Home</a></li>
+              <li><a href="#collections" className="hover:text-brand-gold transition-colors">Collections</a></li>
+              <li><a href="#bridal" className="hover:text-brand-gold transition-colors">Bridal Couture</a></li>
+              <li><a href="#about" className="hover:text-brand-gold transition-colors">Our Legacy</a></li>
+              <li><a href="#contact" className="hover:text-brand-gold transition-colors">Store Locator</a></li>
+            </ul>
+          </div>
+
+          {/* Customer Service */}
+          <div>
+            <h3 className="text-xs uppercase tracking-widest font-bold mb-8">Customer Care</h3>
+            <ul className="space-y-4 text-brand-gray/60 text-sm">
+              <li><a href="#" className="hover:text-brand-gold transition-colors">Gold Exchange Policy</a></li>
+              <li><a href="#" className="hover:text-brand-gold transition-colors">Diamond Certification</a></li>
+              <li><a href="#" className="hover:text-brand-gold transition-colors">Book an Appointment</a></li>
+              <li><a href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Details */}
+          <div id="contact" className="space-y-6">
+            <h3 className="text-xs uppercase tracking-widest font-bold mb-8">Visit Store</h3>
+            <div className="space-y-4 text-brand-gray/60 text-sm">
+              <div className="flex gap-3">
+                <MapPin size={18} className="text-brand-gold shrink-0" />
+                <p>123, Main Market Tower, <br />Jewellery Lane, New Delhi - 110001</p>
+              </div>
+              <div className="flex gap-3">
+                <Phone size={18} className="text-brand-gold shrink-0" />
+                <a href="tel:+919123456789" className="hover:text-white transition-colors tracking-widest">+91 91234 56789</a>
+              </div>
+              <div className="flex gap-3">
+                <Mail size={18} className="text-brand-gold shrink-0" />
+                <a href="mailto:care@lalarohini.com" className="hover:text-white transition-colors">care@lalarohini.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex space-x-8 text-[10px] uppercase tracking-[0.2em] text-white/50">
+            <span>Terms</span>
+            <span>Privacy</span>
+            <span>Certifications</span>
+          </div>
+          <div className="flex space-x-4">
+            <a href="https://wa.me/910000000000" className="flex items-center space-x-2 bg-[#25D366] text-white px-6 py-2 rounded-full hover:scale-105 transition-transform">
+              <MessageSquare size={16} fill="white" />
+              <span className="text-[11px] font-bold uppercase tracking-widest">WhatsApp Us</span>
+            </a>
+            <button className="bg-white text-brand-black px-8 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest hover:scale-105 transition-transform">
+              Visit Showroom
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

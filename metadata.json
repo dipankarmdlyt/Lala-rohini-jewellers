@@ -1,0 +1,6 @@
+{
+  "name": "Lala Rohini Jewellers",
+  "description": "Luxury premium jewellery storefront specializing in Gold, Diamond, and Bridal collections. Heritage, trust, and exquisite craftsmanship.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["Product Showcase", "Enquiry System", "Store Locator"]
+}
